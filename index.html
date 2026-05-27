@@ -3,92 +3,101 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Lumina Tech — Painéis solares inteligentes e gestão de energia por app. Economia real, tecnologia de ponta, sustentabilidade comprovada." />
+  <meta name="description" content="Lumina Tech — Painéis solares inteligentes e gestão de energia por app." />
   <title>Lumina Tech | Energia Solar Inteligente</title>
-
-  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            'gold':     '#c8922a',
-            'gold-lt':  '#e8b84b',
-            'gold-dim': '#7a5519',
-            'bg':       '#080c10',
-            'bg-2':     '#0d1318',
-            'bg-card':  '#111820',
-            'brand-white': '#f0ede6',
-            'muted':    '#8b8d8f',
+            'gold': '#c8922a', 'gold-lt': '#e8b84b', 'gold-dim': '#7a5519',
+            'bg': '#080c10', 'bg-2': '#0d1318', 'bg-card': '#111820',
+            'brand-white': '#f0ede6', 'muted': '#8b8d8f'
           },
           fontFamily: {
             head: ['"Cormorant Garamond"', 'Georgia', 'serif'],
-            body: ['"DM Sans"', 'sans-serif'],
-          },
+            body: ['"DM Sans"', 'sans-serif']
+          }
         }
       }
     }
   </script>
-
-  <!-- Estilos customizados (animações, pseudo-elementos, tokens) -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<!-- Progress bar -->
-<div id="progress-bar" role="progressbar" aria-label="Progresso de leitura da página"></div>
+<div id="progress-bar"></div>
 
-<!-- Mobile menu -->
-<nav class="mobile-menu" id="mobileMenu" aria-label="Menu de navegação mobile">
-  <button class="mobile-close" id="mobileClose" aria-label="Fechar menu">✕</button>
-  <a href="#problema" onclick="closeMobile()">Solução</a>
-  <a href="#tecnologia" onclick="closeMobile()">Tecnologia</a>
-  <a href="#numeros" onclick="closeMobile()">Resultados</a>
-  <a href="#depoimentos" onclick="closeMobile()">Cases</a>
-  <a href="#faq" onclick="closeMobile()">FAQ</a>
-  <a href="#orcamento" onclick="closeMobile()" class="btn btn-primary" style="font-size:1.1rem;padding:14px 32px;">Solicitar Orçamento</a>
+<div id="sidebarOverlay" class="sidebar-overlay" onclick="closeSidebar()"></div>
+
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <div class="flex items-center gap-2">
+      <svg width="28" height="28" viewBox="0 0 36 36" fill="none">
+        <circle cx="18" cy="18" r="17" stroke="#c8922a" stroke-width="1.2"/>
+        <path d="M18 8v4M18 24v4M8 18h4M24 18h4M11.05 11.05l2.83 2.83M22.12 22.12l2.83 2.83M22.12 11.05l-2.83 2.83M11.05 22.12l2.83 2.83" stroke="#c8922a" stroke-width="1.5" stroke-linecap="round"/>
+        <circle cx="18" cy="18" r="4" fill="#c8922a" fill-opacity=".3" stroke="#c8922a" stroke-width="1.2"/>
+      </svg>
+      <span class="nav-logo-text">Lumina<span>Tech</span></span>
+    </div>
+    <button class="sidebar-close" onclick="closeSidebar()">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+        <path d="M5 5l10 10M15 5L5 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+  <div class="sidebar-links">
+    <a href="#problema" onclick="closeSidebar()"><span class="sidebar-link-num">01</span> Solução</a>
+    <a href="#tecnologia" onclick="closeSidebar()"><span class="sidebar-link-num">02</span> Tecnologia</a>
+    <a href="#numeros" onclick="closeSidebar()"><span class="sidebar-link-num">03</span> Resultados</a>
+    <a href="#depoimentos" onclick="closeSidebar()"><span class="sidebar-link-num">04</span> Cases</a>
+    <a href="#faq" onclick="closeSidebar()"><span class="sidebar-link-num">05</span> FAQ</a>
+  </div>
+  <div class="sidebar-footer">
+    <a href="#orcamento" onclick="closeSidebar()" class="btn btn-primary w-full justify-center">
+      Solicitar Orçamento
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </a>
+    <p class="text-xs text-center mt-4" style="color:var(--muted)">© 2024 Lumina Tech</p>
+  </div>
 </nav>
 
-<!-- NAV -->
-<header id="nav" role="banner">
+<header id="nav">
   <div class="container nav-inner flex items-center justify-between">
-    <a href="#" class="nav-logo flex items-center gap-3" aria-label="Lumina Tech - Página inicial">
-      <svg class="nav-logo-icon w-9 h-9" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <a href="#" class="nav-logo flex items-center gap-3">
+      <svg class="nav-logo-icon w-9 h-9" viewBox="0 0 36 36" fill="none">
         <circle cx="18" cy="18" r="17" stroke="#c8922a" stroke-width="1.2"/>
         <path d="M18 8v4M18 24v4M8 18h4M24 18h4M11.05 11.05l2.83 2.83M22.12 22.12l2.83 2.83M22.12 11.05l-2.83 2.83M11.05 22.12l2.83 2.83" stroke="#c8922a" stroke-width="1.5" stroke-linecap="round"/>
         <circle cx="18" cy="18" r="4" fill="#c8922a" fill-opacity=".3" stroke="#c8922a" stroke-width="1.2"/>
       </svg>
       <span class="nav-logo-text">Lumina<span>Tech</span></span>
     </a>
-    <ul class="nav-links flex gap-9 list-none" role="list">
-      <li><a href="#problema">Solução</a></li>
-      <li><a href="#tecnologia">Tecnologia</a></li>
-      <li><a href="#numeros">Resultados</a></li>
-      <li><a href="#depoimentos">Cases</a></li>
-      <li><a href="#faq">FAQ</a></li>
-    </ul>
-    <div class="nav-cta flex gap-3 items-center">
+    <div class="flex items-center gap-4">
       <a href="#orcamento" class="btn btn-primary" id="nav-cta-btn">Solicitar Orçamento</a>
+      <button class="nav-menu-btn" id="menuBtn" onclick="openSidebar()">
+        <div class="nav-menu-lines">
+          <span></span><span></span><span></span>
+        </div>
+        <span class="nav-menu-label">Menu</span>
+      </button>
     </div>
-    <button class="hamburger hidden flex-col gap-1 cursor-pointer bg-transparent border-none p-1" id="hamburger" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu">
-      <span></span><span></span><span></span>
-    </button>
   </div>
 </header>
 
-<!-- ─── HERO ─────────────────────────────────────────────── -->
-<section id="hero" aria-labelledby="hero-title">
-  <div class="hero-bg" aria-hidden="true"></div>
-  <div class="hero-grid-lines" aria-hidden="true"></div>
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid-lines"></div>
   <div class="container">
     <div class="hero-content">
       <div class="hero-text">
         <div class="hero-eyebrow flex items-center gap-3 mb-7">
-          <div class="hero-eyebrow-dot" aria-hidden="true"></div>
+          <div class="hero-eyebrow-dot"></div>
           <span class="label">Inovação em Energia Solar</span>
         </div>
-        <h1 class="hero-title" id="hero-title">
+        <h1 class="hero-title">
           Energia limpa,<br>
           <em>gestão inteligente</em><br>
           em tempo real.
@@ -99,29 +108,28 @@
         <div class="hero-actions flex gap-4 flex-wrap">
           <a href="#orcamento" class="btn btn-primary">
             Solicitar orçamento gratuito
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
             </svg>
           </a>
           <a href="#tecnologia" class="btn btn-outline">Ver tecnologia</a>
         </div>
-        <div class="hero-stats flex gap-10 mt-16 pt-10" style="border-top:1px solid var(--border)" role="list">
-          <div role="listitem">
+        <div class="hero-stats flex gap-10 mt-16 pt-10" style="border-top:1px solid var(--border)">
+          <div>
             <span class="hero-stat-val">+2.400</span>
             <p class="hero-stat-label text-muted text-xs tracking-wide mt-1">Instalações realizadas</p>
           </div>
-          <div role="listitem">
+          <div>
             <span class="hero-stat-val">87<span style="font-size:1.4rem">%</span></span>
             <p class="hero-stat-label text-muted text-xs tracking-wide mt-1">Redução na conta de luz</p>
           </div>
-          <div role="listitem">
+          <div>
             <span class="hero-stat-val">4,9<span style="font-size:1.4rem">★</span></span>
             <p class="hero-stat-label text-muted text-xs tracking-wide mt-1">Avaliação média</p>
           </div>
         </div>
       </div>
-
-      <div class="hero-visual relative flex items-center justify-center" aria-hidden="true">
+      <div class="hero-visual relative flex items-center justify-center">
         <div class="panel-wrap relative w-full max-w-lg">
           <div class="panel-glow"></div>
           <div class="panel-svg-wrap">
@@ -172,16 +180,16 @@
               </defs>
             </svg>
           </div>
-          <div class="hero-badge" role="status" aria-label="Economia atual: 87% na conta de energia">
-            <div class="badge-icon" aria-hidden="true">⚡</div>
+          <div class="hero-badge">
+            <div class="badge-icon">⚡</div>
             <div>
               <div class="badge-val">87% economia</div>
               <div class="badge-desc">na conta de energia</div>
             </div>
           </div>
-          <div class="hero-badge-2" role="status" aria-label="Sistema operando normalmente">
+          <div class="hero-badge-2">
             <div class="badge2-row flex items-center gap-2">
-              <div class="badge2-dot" aria-hidden="true"></div>
+              <div class="badge2-dot"></div>
               <span class="badge2-text">Sistema online</span>
             </div>
             <div class="badge2-sub">4,2 kWh gerados hoje</div>
@@ -192,19 +200,18 @@
   </div>
 </section>
 
-<!-- ─── PROBLEMA / SOLUÇÃO ─────────────────────────────── -->
-<section id="problema" aria-labelledby="problema-title">
+<section id="problema">
   <div class="container">
     <div class="problema-grid">
       <div class="problema-text reveal">
         <span class="label">O problema que resolvemos</span>
-        <span class="gold-line" aria-hidden="true"></span>
-        <h2 class="section-title mb-5" id="problema-title">
+        <span class="gold-line"></span>
+        <h2 class="section-title mb-5">
           Sua energia cara<br>é <em>problema resolvível.</em>
         </h2>
         <p class="text-muted mb-4">A conta de luz brasileira é uma das mais caras do mundo. Empresas e residências perdem, em média, R$ 8.400 por ano em energia que poderia ser gerada pelo sol — gratuitamente.</p>
         <p class="text-muted mb-4">A Lumina Tech nasceu para mudar isso, com tecnologia que vai além do painel: um ecossistema completo de geração, monitoramento e otimização energética.</p>
-        <ul class="check-list mt-8" aria-label="Benefícios da Lumina Tech">
+        <ul class="check-list mt-8">
           <li>Redução de até 95% na conta de energia elétrica</li>
           <li>Monitoramento em tempo real via aplicativo próprio</li>
           <li>Retorno de investimento em até 36 meses</li>
@@ -214,17 +221,17 @@
       </div>
       <div class="problema-cards reveal flex flex-col gap-5">
         <div class="prob-card">
-          <div class="prob-card-icon text-3xl mb-3" aria-hidden="true">📊</div>
+          <div class="prob-card-icon text-3xl mb-3">📊</div>
           <h3 class="prob-card-title">Sem visibilidade do consumo</h3>
           <p class="prob-card-desc text-muted text-sm leading-relaxed">Sem monitoramento, você não sabe onde está gastando energia — e não pode otimizar o que não consegue medir. Nossa plataforma resolve isso em tempo real.</p>
         </div>
         <div class="prob-card">
-          <div class="prob-card-icon text-3xl mb-3" aria-hidden="true">💸</div>
+          <div class="prob-card-icon text-3xl mb-3">💸</div>
           <h3 class="prob-card-title">Conta de luz imprevisível</h3>
           <p class="prob-card-desc text-muted text-sm leading-relaxed">Tarifas de energia aumentam em média 12% ao ano no Brasil. Com a Lumina, você congela seu custo e ainda gera créditos para abater faturas futuras.</p>
         </div>
         <div class="prob-card">
-          <div class="prob-card-icon text-3xl mb-3" aria-hidden="true">🔧</div>
+          <div class="prob-card-icon text-3xl mb-3">🔧</div>
           <h3 class="prob-card-title">Instalação sem expertise</h3>
           <p class="prob-card-desc text-muted text-sm leading-relaxed">Instalações mal dimensionadas desperdiçam até 40% do potencial. Nossa equipe de engenheiros certifica cada projeto individualmente.</p>
         </div>
@@ -233,56 +240,55 @@
   </div>
 </section>
 
-<!-- ─── TECNOLOGIA ─────────────────────────────────────── -->
-<section id="tecnologia" aria-labelledby="tecnologia-title">
+<section id="tecnologia">
   <div class="container">
     <div class="tech-header reveal text-center max-w-2xl mx-auto mb-20">
       <span class="label">Nossa Tecnologia</span>
-      <span class="gold-line mx-auto" aria-hidden="true"></span>
-      <h2 class="section-title" id="tecnologia-title">
+      <span class="gold-line mx-auto"></span>
+      <h2 class="section-title">
         Painéis inteligentes.<br><em>Gestão em tempo real.</em>
       </h2>
       <p class="text-muted text-base mt-3">Cada componente do ecossistema Lumina foi desenvolvido para maximizar a eficiência energética e simplificar a experiência do usuário.</p>
     </div>
-    <div class="tech-grid grid grid-cols-3 gap-6" role="list">
-      <div class="tech-card reveal" role="listitem">
-        <div class="tech-card-num" aria-hidden="true">01</div>
-        <div class="tech-card-icon flex items-center justify-center w-13 h-13 rounded-xl mb-6" aria-hidden="true">☀️</div>
+    <div class="tech-grid grid grid-cols-3 gap-6">
+      <div class="tech-card reveal">
+        <div class="tech-card-num">01</div>
+        <div class="tech-card-icon flex items-center justify-center w-13 h-13 rounded-xl mb-6">☀️</div>
         <h3 class="tech-card-title">Painéis Monocristalinos</h3>
         <p class="tech-card-desc text-muted text-sm leading-relaxed">Tecnologia PERC de última geração com eficiência de até 23,2%. Células solares monocristalinas premium com desempenho superior em dias nublados.</p>
         <span class="tech-tag">Eficiência 23,2%</span>
       </div>
-      <div class="tech-card reveal" role="listitem" style="transition-delay:.1s">
-        <div class="tech-card-num" aria-hidden="true">02</div>
-        <div class="tech-card-icon flex items-center justify-center w-13 h-13 rounded-xl mb-6" aria-hidden="true">📱</div>
+      <div class="tech-card reveal" style="transition-delay:.1s">
+        <div class="tech-card-num">02</div>
+        <div class="tech-card-icon flex items-center justify-center w-13 h-13 rounded-xl mb-6">📱</div>
         <h3 class="tech-card-title">App de Gestão Lumina</h3>
         <p class="tech-card-desc text-muted text-sm leading-relaxed">Monitore geração, consumo e créditos em tempo real. Alertas inteligentes, relatórios automáticos e integração com assistentes de voz. iOS e Android.</p>
         <span class="tech-tag">iOS & Android</span>
       </div>
-      <div class="tech-card reveal" role="listitem" style="transition-delay:.2s">
-        <div class="tech-card-num" aria-hidden="true">03</div>
-        <div class="tech-card-icon flex items-center justify-center w-13 h-13 rounded-xl mb-6" aria-hidden="true">🔋</div>
+      <div class="tech-card reveal" style="transition-delay:.2s">
+        <div class="tech-card-num">03</div>
+        <div class="tech-card-icon flex items-center justify-center w-13 h-13 rounded-xl mb-6">🔋</div>
         <h3 class="tech-card-title">Microinversores AI</h3>
         <p class="tech-card-desc text-muted text-sm leading-relaxed">Inversores com algoritmos de IA que ajustam a extração de energia painel a painel. Desempenho 31% superior a sistemas tradicionais com string inverter.</p>
         <span class="tech-tag">+31% performance</span>
       </div>
-      <div class="tech-card reveal" role="listitem" style="transition-delay:.3s">
-        <div class="tech-card-num" aria-hidden="true">04</div>
-        <div class="tech-card-icon flex items-center justify-center w-13 h-13 rounded-xl mb-6" aria-hidden="true">🌐</div>
+      <div class="tech-card reveal" style="transition-delay:.3s">
+        <div class="tech-card-num">04</div>
+        <div class="tech-card-icon flex items-center justify-center w-13 h-13 rounded-xl mb-6">🌐</div>
         <h3 class="tech-card-title">Conectividade IoT</h3>
         <p class="tech-card-desc text-muted text-sm leading-relaxed">Sistema conectado 24h com transmissão de dados em tempo real. Diagnóstico preditivo de falhas antes que elas afetem sua geração.</p>
         <span class="tech-tag">Monitoramento 24h</span>
       </div>
-      <div class="tech-card reveal" role="listitem" style="transition-delay:.4s">
-        <div class="tech-card-num" aria-hidden="true">05</div>
-        <div class="tech-card-icon flex items-center justify-center w-13 h-13 rounded-xl mb-6" aria-hidden="true">🛡️</div>
+      <div class="tech-card reveal" style="transition-delay:.4s">
+        <div class="tech-card-num">05</div>
+        <div class="tech-card-icon flex items-center justify-center w-13 h-13 rounded-xl mb-6">🛡️</div>
         <h3 class="tech-card-title">Garantia Extendida</h3>
         <p class="tech-card-desc text-muted text-sm leading-relaxed">25 anos de garantia nos painéis, 12 anos nos inversores e 5 anos de manutenção preventiva inclusa. Proteção total do seu investimento.</p>
         <span class="tech-tag">25 anos garantia</span>
       </div>
-      <div class="tech-card reveal" role="listitem" style="transition-delay:.5s">
-        <div class="tech-card-num" aria-hidden="true">06</div>
-        <div class="tech-card-icon flex items-center justify-center w-13 h-13 rounded-xl mb-6" aria-hidden="true">⚙️</div>
+      <div class="tech-card reveal" style="transition-delay:.5s">
+        <div class="tech-card-num">06</div>
+        <div class="tech-card-icon flex items-center justify-center w-13 h-13 rounded-xl mb-6">⚙️</div>
         <h3 class="tech-card-title">Instalação Certificada</h3>
         <p class="tech-card-desc text-muted text-sm leading-relaxed">Equipe de engenheiros elétricos certificados pelo CREA. Projeto personalizado com dimensionamento preciso para máxima geração no seu perfil de consumo.</p>
         <span class="tech-tag">Equipe CREA</span>
@@ -291,31 +297,28 @@
   </div>
 </section>
 
-<!-- ─── NÚMEROS ────────────────────────────────────────── -->
-<section id="numeros" aria-labelledby="numeros-title">
-  <div class="numeros-bg" aria-hidden="true"></div>
+<section id="numeros">
+  <div class="numeros-bg"></div>
   <div class="container numeros-inner relative z-10">
     <div class="numeros-header reveal text-center mb-20">
       <span class="label">Resultados Comprovados</span>
-      <span class="gold-line mx-auto" aria-hidden="true"></span>
-      <h2 class="section-title" id="numeros-title">
-        Números que <em>falam por si.</em>
-      </h2>
+      <span class="gold-line mx-auto"></span>
+      <h2 class="section-title">Números que <em>falam por si.</em></h2>
     </div>
-    <div class="numeros-grid" role="list">
-      <div class="numero-item reveal" role="listitem">
+    <div class="numeros-grid">
+      <div class="numero-item reveal">
         <span class="numero-val">+<span class="num-count" data-target="2400">0</span></span>
         <p class="numero-label">Instalações realizadas em todo o Brasil</p>
       </div>
-      <div class="numero-item reveal" role="listitem">
+      <div class="numero-item reveal">
         <span class="numero-val"><span class="num-count" data-target="87">0</span><span class="numero-unit">%</span></span>
         <p class="numero-label">Redução média na conta de energia</p>
       </div>
-      <div class="numero-item reveal" role="listitem">
+      <div class="numero-item reveal">
         <span class="numero-val"><span class="num-count" data-target="36">0</span> <span class="numero-unit">meses</span></span>
         <p class="numero-label">Prazo médio de retorno do investimento</p>
       </div>
-      <div class="numero-item reveal" role="listitem">
+      <div class="numero-item reveal">
         <span class="numero-val"><span class="num-count" data-target="98">0</span><span class="numero-unit">%</span></span>
         <p class="numero-label">Clientes satisfeitos (NPS &gt; 70)</p>
       </div>
@@ -323,47 +326,44 @@
   </div>
 </section>
 
-<!-- ─── DEPOIMENTOS ───────────────────────────────────── -->
-<section id="depoimentos" aria-labelledby="dep-title">
+<section id="depoimentos">
   <div class="container">
     <div class="dep-header reveal text-center mb-16">
       <span class="label">Cases de Sucesso</span>
-      <span class="gold-line mx-auto" aria-hidden="true"></span>
-      <h2 class="section-title" id="dep-title">
-        Clientes que <em>já economizam.</em>
-      </h2>
+      <span class="gold-line mx-auto"></span>
+      <h2 class="section-title">Clientes que <em>já economizam.</em></h2>
     </div>
-    <div class="dep-grid grid grid-cols-3 gap-6" role="list">
-      <article class="dep-card reveal" role="listitem">
-        <div class="dep-quote" aria-hidden="true">"</div>
-        <div class="dep-stars text-gold text-sm tracking-widest mb-5" aria-label="Avaliação 5 estrelas" role="img">★★★★★</div>
+    <div class="dep-grid grid grid-cols-3 gap-6">
+      <article class="dep-card reveal">
+        <div class="dep-quote">"</div>
+        <div class="dep-stars text-gold text-sm tracking-widest mb-5">★★★★★</div>
         <p class="dep-text text-sm italic leading-relaxed mb-8">Em seis meses, nossa conta de luz caiu de R$ 4.200 para R$ 380. O app da Lumina nos mostra em tempo real quanto estamos gerando — impressionante. O ROI veio muito antes do previsto.</p>
         <div class="dep-author flex items-center gap-3">
-          <div class="dep-avatar" aria-hidden="true">RC</div>
+          <div class="dep-avatar">RC</div>
           <div>
             <p class="dep-name font-medium text-sm">Ricardo Campos</p>
             <p class="dep-role text-muted text-xs">Diretor de Operações — Atacado Campos Ltda.</p>
           </div>
         </div>
       </article>
-      <article class="dep-card reveal" role="listitem" style="transition-delay:.15s">
-        <div class="dep-quote" aria-hidden="true">"</div>
-        <div class="dep-stars text-gold text-sm tracking-widest mb-5" aria-label="Avaliação 5 estrelas" role="img">★★★★★</div>
+      <article class="dep-card reveal" style="transition-delay:.15s">
+        <div class="dep-quote">"</div>
+        <div class="dep-stars text-gold text-sm tracking-widest mb-5">★★★★★</div>
         <p class="dep-text text-sm italic leading-relaxed mb-8">A instalação foi rápida, limpa e a equipe explicou cada detalhe do projeto. Já no primeiro mês gerei mais energia do que consumi. Os créditos aparecem direto no app — incrível.</p>
         <div class="dep-author flex items-center gap-3">
-          <div class="dep-avatar" aria-hidden="true">AM</div>
+          <div class="dep-avatar">AM</div>
           <div>
             <p class="dep-name font-medium text-sm">Ana Moreira</p>
             <p class="dep-role text-muted text-xs">Proprietária — Condomínio Villa Verde</p>
           </div>
         </div>
       </article>
-      <article class="dep-card reveal" role="listitem" style="transition-delay:.3s">
-        <div class="dep-quote" aria-hidden="true">"</div>
-        <div class="dep-stars text-gold text-sm tracking-widest mb-5" aria-label="Avaliação 5 estrelas" role="img">★★★★★</div>
+      <article class="dep-card reveal" style="transition-delay:.3s">
+        <div class="dep-quote">"</div>
+        <div class="dep-stars text-gold text-sm tracking-widest mb-5">★★★★★</div>
         <p class="dep-text text-sm italic leading-relaxed mb-8">Somos uma indústria de médio porte e precisávamos de uma solução robusta. A Lumina dimensionou o sistema perfeitamente. Economia de R$ 28 mil por mês e impacto zero na produção.</p>
         <div class="dep-author flex items-center gap-3">
-          <div class="dep-avatar" aria-hidden="true">FS</div>
+          <div class="dep-avatar">FS</div>
           <div>
             <p class="dep-name font-medium text-sm">Fernando Silva</p>
             <p class="dep-role text-muted text-xs">CEO — Metalúrgica Silva S.A.</p>
@@ -374,63 +374,60 @@
   </div>
 </section>
 
-<!-- ─── FAQ ───────────────────────────────────────────── -->
-<section id="faq" aria-labelledby="faq-title">
+<section id="faq">
   <div class="container">
     <div class="faq-wrap">
       <div class="faq-aside reveal">
         <span class="label">Perguntas Frequentes</span>
-        <span class="gold-line" aria-hidden="true"></span>
-        <h2 class="section-title mb-5" id="faq-title">
-          Dúvidas que<br><em>esclarecemos.</em>
-        </h2>
+        <span class="gold-line"></span>
+        <h2 class="section-title mb-5">Dúvidas que<br><em>esclarecemos.</em></h2>
         <p class="text-muted mb-8">Tire suas principais dúvidas sobre energia solar e os serviços da Lumina Tech. Prefere falar com um especialista?</p>
         <a href="#orcamento" class="btn btn-primary">Falar com especialista</a>
       </div>
-      <div class="faq-list reveal flex flex-col" role="list">
-        <div class="faq-item" role="listitem">
+      <div class="faq-list reveal flex flex-col">
+        <div class="faq-item">
           <button class="faq-btn" aria-expanded="false" aria-controls="faq1">
             Quanto tempo leva a instalação?
-            <span class="faq-icon" aria-hidden="true">+</span>
+            <span class="faq-icon">+</span>
           </button>
-          <div class="faq-answer" id="faq1" role="region">
+          <div class="faq-answer" id="faq1">
             <p class="text-muted text-sm leading-relaxed">O prazo médio de instalação é de 1 a 3 dias úteis, dependendo do porte do sistema. Antes da instalação, nossos engenheiros realizam uma visita técnica para levantar todas as especificações e garantir que o projeto seja executado com perfeição.</p>
           </div>
         </div>
-        <div class="faq-item" role="listitem">
+        <div class="faq-item">
           <button class="faq-btn" aria-expanded="false" aria-controls="faq2">
             Funciona em dias nublados ou chuvosos?
-            <span class="faq-icon" aria-hidden="true">+</span>
+            <span class="faq-icon">+</span>
           </button>
-          <div class="faq-answer" id="faq2" role="region">
-            <p class="text-muted text-sm leading-relaxed">Sim! Nossos painéis monocristalinos PERC foram desenvolvidos para captar energia mesmo com radiação solar difusa. Em dias nublados, a geração cai entre 10% e 30%, mas o sistema continua operacional. A energia gerada em excesso nos dias de sol é acumulada como créditos na distribuidora.</p>
+          <div class="faq-answer" id="faq2">
+            <p class="text-muted text-sm leading-relaxed">Sim! Nossos painéis monocristalinos PERC foram desenvolvidos para captar energia mesmo com radiação solar difusa. Em dias nublados, a geração cai entre 10% e 30%, mas o sistema continua operacional.</p>
           </div>
         </div>
-        <div class="faq-item" role="listitem">
+        <div class="faq-item">
           <button class="faq-btn" aria-expanded="false" aria-controls="faq3">
             Preciso de autorização da distribuidora?
-            <span class="faq-icon" aria-hidden="true">+</span>
+            <span class="faq-icon">+</span>
           </button>
-          <div class="faq-answer" id="faq3" role="region">
-            <p class="text-muted text-sm leading-relaxed">Sim, toda instalação de energia solar fotovoltaica requer aprovação da distribuidora local. Nossa equipe cuida de todo o processo burocrático: projeto elétrico, protocolo na distribuidora, vistoria e conexão à rede. Você não precisa se preocupar com nada.</p>
+          <div class="faq-answer" id="faq3">
+            <p class="text-muted text-sm leading-relaxed">Sim, toda instalação requer aprovação da distribuidora local. Nossa equipe cuida de todo o processo burocrático: projeto elétrico, protocolo, vistoria e conexão à rede. Você não precisa se preocupar com nada.</p>
           </div>
         </div>
-        <div class="faq-item" role="listitem">
+        <div class="faq-item">
           <button class="faq-btn" aria-expanded="false" aria-controls="faq4">
             Qual é o retorno financeiro esperado?
-            <span class="faq-icon" aria-hidden="true">+</span>
+            <span class="faq-icon">+</span>
           </button>
-          <div class="faq-answer" id="faq4" role="region">
-            <p class="text-muted text-sm leading-relaxed">O payback médio dos nossos clientes é de 24 a 36 meses. Após esse período, a energia gerada é essencialmente gratuita por pelo menos mais 20 anos. Considerando a valorização imobiliária (imóveis com solar valem até 15% mais) e a proteção contra reajustes tarifários, o retorno total é expressivo.</p>
+          <div class="faq-answer" id="faq4">
+            <p class="text-muted text-sm leading-relaxed">O payback médio é de 24 a 36 meses. Após esse período, a energia gerada é essencialmente gratuita por pelo menos mais 20 anos, além de valorizar o imóvel em até 15%.</p>
           </div>
         </div>
-        <div class="faq-item" role="listitem">
+        <div class="faq-item">
           <button class="faq-btn" aria-expanded="false" aria-controls="faq5">
             O que acontece em caso de falha no sistema?
-            <span class="faq-icon" aria-hidden="true">+</span>
+            <span class="faq-icon">+</span>
           </button>
-          <div class="faq-answer" id="faq5" role="region">
-            <p class="text-muted text-sm leading-relaxed">Nosso app monitora o sistema 24h por dia e alerta automaticamente sobre qualquer anomalia. Em casos de falha, nossa equipe técnica é acionada e realizamos atendimento em até 24 horas úteis. Todos os equipamentos possuem garantia de fábrica e nossa cobertura de manutenção preventiva está inclusa nos primeiros 5 anos.</p>
+          <div class="faq-answer" id="faq5">
+            <p class="text-muted text-sm leading-relaxed">Nosso app monitora o sistema 24h por dia e alerta automaticamente sobre qualquer anomalia. Em casos de falha, nossa equipe realiza atendimento em até 24 horas. Todos os equipamentos possuem garantia de fábrica.</p>
           </div>
         </div>
       </div>
@@ -438,54 +435,49 @@
   </div>
 </section>
 
-<!-- ─── FORMULÁRIO ─────────────────────────────────────── -->
-<section id="orcamento" aria-labelledby="orcamento-title">
-  <div class="orcamento-bg" aria-hidden="true"></div>
+<section id="orcamento">
+  <div class="orcamento-bg"></div>
   <div class="container">
     <div class="orcamento-wrap">
       <div class="orcamento-info reveal">
         <span class="label">Orçamento Gratuito</span>
-        <span class="gold-line" aria-hidden="true"></span>
-        <h2 class="section-title mb-5" id="orcamento-title">
-          Vamos calcular<br>sua <em>economia.</em>
-        </h2>
-        <p class="text-muted mb-8" style="font-size:15px">Preencha o formulário e um de nossos especialistas entrará em contato em até 2 horas úteis com um estudo personalizado de viabilidade e retorno financeiro.</p>
-        <ul class="orcamento-bullets flex flex-col gap-4" aria-label="O que está incluso no orçamento">
-          <li class="flex items-center gap-3 text-sm"><span aria-hidden="true">✅</span> <span>Análise técnica e projeto elétrico gratuitos</span></li>
-          <li class="flex items-center gap-3 text-sm"><span aria-hidden="true">✅</span> <span>Estudo de retorno financeiro personalizado</span></li>
-          <li class="flex items-center gap-3 text-sm"><span aria-hidden="true">✅</span> <span>Simulação de economia nos próximos 25 anos</span></li>
-          <li class="flex items-center gap-3 text-sm"><span aria-hidden="true">✅</span> <span>Sem compromisso ou taxa de visita</span></li>
-          <li class="flex items-center gap-3 text-sm"><span aria-hidden="true">✅</span> <span>Atendimento por engenheiros especializados</span></li>
+        <span class="gold-line"></span>
+        <h2 class="section-title mb-5">Vamos calcular<br>sua <em>economia.</em></h2>
+        <p class="text-muted mb-8" style="font-size:15px">Preencha o formulário e um especialista entrará em contato em até 2 horas úteis com um estudo personalizado de viabilidade e retorno financeiro.</p>
+        <ul class="orcamento-bullets flex flex-col gap-4">
+          <li class="flex items-center gap-3 text-sm"><span>✅</span> Análise técnica e projeto elétrico gratuitos</li>
+          <li class="flex items-center gap-3 text-sm"><span>✅</span> Estudo de retorno financeiro personalizado</li>
+          <li class="flex items-center gap-3 text-sm"><span>✅</span> Simulação de economia nos próximos 25 anos</li>
+          <li class="flex items-center gap-3 text-sm"><span>✅</span> Sem compromisso ou taxa de visita</li>
+          <li class="flex items-center gap-3 text-sm"><span>✅</span> Atendimento por engenheiros especializados</li>
         </ul>
         <div class="orcamento-trust">
           <p class="orcamento-trust-title text-muted text-xs tracking-wide mb-4">Certificações & Conformidade</p>
-          <div class="trust-logos flex gap-5 flex-wrap" role="list">
-            <span class="trust-badge" role="listitem">INMETRO</span>
-            <span class="trust-badge" role="listitem">IEC 61215</span>
-            <span class="trust-badge" role="listitem">CREA Certificado</span>
-            <span class="trust-badge" role="listitem">ISO 9001</span>
+          <div class="trust-logos flex gap-5 flex-wrap">
+            <span class="trust-badge">INMETRO</span>
+            <span class="trust-badge">IEC 61215</span>
+            <span class="trust-badge">CREA Certificado</span>
+            <span class="trust-badge">ISO 9001</span>
           </div>
         </div>
       </div>
-
       <div class="form-card reveal">
         <p class="form-title">Solicite seu orçamento</p>
         <p class="form-sub text-muted text-sm mb-9">Resposta em até 2 horas úteis</p>
-
-        <form id="lumina-form" action="#" method="post" novalidate>
+        <form id="lumina-form" novalidate>
           <div class="form-row grid grid-cols-2 gap-4">
             <div class="form-group mb-5">
               <label class="form-label" for="nome">Nome completo *</label>
-              <input class="form-input" type="text" id="nome" name="nome" placeholder="João Silva" required autocomplete="name" />
+              <input class="form-input" type="text" id="nome" name="nome" placeholder="João Silva" required />
             </div>
             <div class="form-group mb-5">
               <label class="form-label" for="telefone">Telefone / WhatsApp *</label>
-              <input class="form-input" type="tel" id="telefone" name="telefone" placeholder="(47) 99999-0000" required autocomplete="tel" />
+              <input class="form-input" type="tel" id="telefone" name="telefone" placeholder="(47) 99999-0000" required />
             </div>
           </div>
           <div class="form-group mb-5">
             <label class="form-label" for="email">E-mail *</label>
-            <input class="form-input" type="email" id="email" name="email" placeholder="joao@empresa.com.br" required autocomplete="email" />
+            <input class="form-input" type="email" id="email" name="email" placeholder="joao@empresa.com.br" required />
           </div>
           <div class="form-row grid grid-cols-2 gap-4">
             <div class="form-group mb-5">
@@ -513,7 +505,7 @@
           </div>
           <div class="form-group mb-5">
             <label class="form-label" for="cidade">Cidade / Estado *</label>
-            <input class="form-input" type="text" id="cidade" name="cidade" placeholder="Joinville, SC" required autocomplete="address-level2" />
+            <input class="form-input" type="text" id="cidade" name="cidade" placeholder="Joinville, SC" required />
           </div>
           <div class="form-group mb-5">
             <label class="form-label" for="mensagem">Informações adicionais</label>
@@ -521,27 +513,26 @@
           </div>
           <div class="form-consent">
             <input type="checkbox" id="lgpd" name="lgpd" required />
-            <label for="lgpd">Concordo com a <a href="#" style="color:var(--gold)">Política de Privacidade</a> e autorizo o contato da Lumina Tech pelo telefone e e-mail informados.</label>
+            <label for="lgpd">Concordo com a <a href="#" style="color:var(--gold)">Política de Privacidade</a> e autorizo o contato da Lumina Tech.</label>
           </div>
-          <button type="submit" class="form-submit" data-cta="form-submit">
+          <button type="submit" class="form-submit">
             Solicitar orçamento gratuito
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
             </svg>
           </button>
-          <p class="form-disclaimer text-center text-xs text-muted mt-4 leading-relaxed">🔒 Seus dados estão protegidos pela LGPD. Não compartilhamos suas informações com terceiros.</p>
+          <p class="form-disclaimer text-center text-xs text-muted mt-4 leading-relaxed">🔒 Seus dados estão protegidos pela LGPD.</p>
         </form>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ─── FOOTER ─────────────────────────────────────────── -->
-<footer role="contentinfo">
+<footer>
   <div class="container">
     <div class="footer-inner flex items-center justify-between flex-wrap gap-6">
       <div class="footer-brand">
-        <svg width="28" height="28" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <svg width="28" height="28" viewBox="0 0 36 36" fill="none">
           <circle cx="18" cy="18" r="17" stroke="#c8922a" stroke-width="1.2"/>
           <path d="M18 8v4M18 24v4M8 18h4M24 18h4" stroke="#c8922a" stroke-width="1.5" stroke-linecap="round"/>
           <circle cx="18" cy="18" r="4" fill="#c8922a" fill-opacity=".3" stroke="#c8922a" stroke-width="1.2"/>
@@ -549,7 +540,7 @@
         Lumina<span>Tech</span>
       </div>
       <p class="footer-copy text-muted text-sm">© 2024 Lumina Tech. Todos os direitos reservados.</p>
-      <nav class="footer-links flex gap-7" aria-label="Links do rodapé">
+      <nav class="footer-links flex gap-7">
         <a href="#">Privacidade</a>
         <a href="#">Termos de Uso</a>
         <a href="#orcamento">Contato</a>
@@ -559,9 +550,10 @@
 </footer>
 
 <script>
-  /* ─── NAV SCROLL ─── */
   const nav = document.getElementById('nav');
   const progressBar = document.getElementById('progress-bar');
+  const sidebar = document.getElementById('sidebar');
+  const overlay = document.getElementById('sidebarOverlay');
 
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 60);
@@ -569,70 +561,54 @@
     progressBar.style.width = pct + '%';
   }, { passive: true });
 
-  /* ─── MOBILE MENU ─── */
-  const hamburger = document.getElementById('hamburger');
-  const mobileMenu = document.getElementById('mobileMenu');
-  const mobileClose = document.getElementById('mobileClose');
-
-  hamburger.addEventListener('click', () => {
-    mobileMenu.classList.add('open');
-    hamburger.setAttribute('aria-expanded', 'true');
+  function openSidebar() {
+    sidebar.classList.add('open');
+    overlay.classList.add('open');
     document.body.style.overflow = 'hidden';
-  });
-  mobileClose.addEventListener('click', closeMobile);
-  function closeMobile() {
-    mobileMenu.classList.remove('open');
-    hamburger.setAttribute('aria-expanded', 'false');
+  }
+
+  function closeSidebar() {
+    sidebar.classList.remove('open');
+    overlay.classList.remove('open');
     document.body.style.overflow = '';
   }
 
-  /* ─── REVEAL ON SCROLL ─── */
-  const reveals = document.querySelectorAll('.reveal');
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
-  }, { threshold: 0.12 });
-  reveals.forEach(el => io.observe(el));
+  document.querySelectorAll('.reveal').forEach(el => {
+    new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) { el.classList.add('visible'); }
+    }, { threshold: 0.12 }).observe(el);
+  });
 
-  /* ─── COUNT-UP ─── */
-  const counters = document.querySelectorAll('.num-count');
-  const cio = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
+  document.querySelectorAll('.num-count').forEach(el => {
+    new IntersectionObserver(([e]) => {
       if (!e.isIntersecting) return;
-      const el = e.target;
       const target = +el.dataset.target;
-      const duration = 1600;
-      const step = target / (duration / 16);
+      const step = target / 100;
       let current = 0;
       const timer = setInterval(() => {
         current = Math.min(current + step, target);
         el.textContent = Math.floor(current).toLocaleString('pt-BR');
         if (current >= target) clearInterval(timer);
       }, 16);
-      cio.unobserve(el);
-    });
-  }, { threshold: 0.5 });
-  counters.forEach(c => cio.observe(c));
+    }, { threshold: 0.5 }).observe(el);
+  });
 
-  /* ─── FAQ ACCORDION ─── */
   document.querySelectorAll('.faq-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
       document.querySelectorAll('.faq-btn').forEach(b => {
         b.setAttribute('aria-expanded', 'false');
         document.getElementById(b.getAttribute('aria-controls')).classList.remove('open');
       });
-      if (!expanded) {
+      if (!isOpen) {
         btn.setAttribute('aria-expanded', 'true');
         document.getElementById(btn.getAttribute('aria-controls')).classList.add('open');
       }
     });
   });
 
-  /* ─── FORM SUBMIT ─── */
   document.getElementById('lumina-form').addEventListener('submit', function(e) {
     e.preventDefault();
-    const data = Object.fromEntries(new FormData(this).entries());
-    this.dispatchEvent(new CustomEvent('lumina:form-submit', { bubbles: true, detail: data }));
     const btn = this.querySelector('.form-submit');
     btn.textContent = '✓ Solicitação enviada!';
     btn.style.background = '#27c97f';
